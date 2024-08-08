@@ -1,14 +1,60 @@
 <section class="home">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 col-12">
-                <h1>The Best Programs to Add to Your Library for Back-to-School Season</h1>
-            </div>
-            <div class="col-md-6 col-12">
+            <div class="col-md-4 col-12"></div>
+            <div class="col-md-4 col-12">
                 <div class="box1">
-                    <img src="https://www.reganagency.com/wp-content/uploads/2023/10/The-Best-Programs-to-Add-to-Your-Library-for-Back-to-School-Season-e1535472831204.jpg" alt="">
+                    <form [formGroup]="reg" (ngSubmit)="onSubmit()">
+                        <label>Name :</label>
+                        <input type="text" formControlName="name" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f['name'].errors}"/>
+                        @if (submitted && f['name'].errors) {
+                            @if (f['name'].errors['required']) 
+                            {
+                                <div>Name is mandatory</div>
+                            }
+                        }
+                        
+                        <div class="form-group">
+                            <label>Mobile :</label>
+                            <input
+                              type="text"
+                              formControlName="mobile"
+                              class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && f['mobile'].errors }"
+                            />
+                            @if (submitted && f['mobile'].errors) {
+                            <div class="invalid-feedback">
+                              @if (f['mobile'].errors['required']) {
+                              <div>Mobile is required</div>
+                              } 
+                              @if (f['mobile'].errors['pattern'] && f['mobile'].errors['minlength'] ) {
+                              <div>Invalid Mobile Number.</div>
+                              } 
+                              @if (f['mobile'].errors['pattern'] && f['mobile'].errors['maxlength']) {
+                              <div>Invalid Mobile Number.</div>
+                              } 
+                              <!-- @if (f['mobile'].errors['pattern']) {
+                              <div>Only numbers allowed.</div>
+                              } -->
+                            </div>
+                            }
+                          </div>
+                        <label>E-mail :</label>
+                        <input type="text" formControlName="email" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f['email'].errors}"/>
+                        @if (submitted && f['email'].errors) {
+                            @if (f['email'].errors['required']) 
+                            {
+                                <div>E-mail is mandatory</div>
+                            }
+                        }
+                        <br><br>
+                        <button type="submit" class="button">Register</button>
+                    </form>
                 </div>
-            </div>            
+            </div>
+            <div class="col-md-4 col-12"></div>
         </div>
     </div>
 </section>
