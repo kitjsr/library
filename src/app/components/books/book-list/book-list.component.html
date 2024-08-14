@@ -1,0 +1,41 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="box card">
+                    <h3>BOOK DETAILS</h3>
+                    <p-table [value]="books" [tableStyle]="{ 'min-width': '50rem' }">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>ISBN</th>
+                                <th>AUTHOR NAME</th>
+                                <th>TITLE</th>
+                                <th>CATEGORY</th>
+                                <th>PUBLISHER</th>
+                                <th>PRICE</th>
+                                <th>EDITION</th>
+                                <th>VIEW</th>
+                                <th>EDIT</th>
+                                <th>DELETE</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-book>
+                            <tr>
+                                <td>{{book.isbn}}</td>
+                                <td>{{book.author}}</td>
+                                <td>{{book.title}}</td>
+                                <td>{{book.categoryDetails[0].name}}</td>
+                                <td>{{book.publisherDetails[0].name}}</td>
+                                <td>{{book.price}}</td>
+                                <td>{{book.edition}}</td>
+                                <td><a [routerLink]="['/singleViewBook/',book._id]"><fa-icon [icon]="faEye" ></fa-icon></a></td>
+                                <td><a [routerLink]="['/editBook/',book._id]"><fa-icon [icon]="faPencil"></fa-icon></a></td>
+                                <td><fa-icon [icon]="faTrash" (click)="delete(book._id)"></fa-icon></td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

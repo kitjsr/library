@@ -1,0 +1,35 @@
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <br>
+                @if (isSuccess) {
+                    <ngb-alert [dismissible]="true" [type]="alertType">
+                        <strong>Success! </strong>Category Successfully Registered
+                    </ngb-alert>
+                }
+            <div class="box">
+                <form [formGroup]="reg" (ngSubmit)="onSubmit()">
+                    <h3>ADD CATEGORY</h3>
+                    <label>Category Name</label>
+                    <input type="text" formControlName="name" class="form-control"
+                    [ngClass]="{'is-invalid':submitted && f['name'].errors}"/>
+                    @if (submitted && f['name'].errors) {
+                        <div class="invalid-feedback">
+                            @if (f['name'].errors['required']) 
+                            {
+                                <div>Category name is mandatory</div>
+                            }
+                        </div>
+                    }
+                    <br>
+                    
+                    <button type="submit" class="button">Add Category</button>
+                </form>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+</section>

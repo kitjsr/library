@@ -1,1 +1,35 @@
-<p>publishers works!</p>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card box">
+                    <h3>PUBLISHER DETAILS</h3>
+                    <p-table [value]="publishers" [tableStyle]="{ 'min-width': '50rem' }">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>PUBLISHER NAME</th>
+                                <th>MOBILE</th>
+                                <th>E-MAIL</th>
+                                <th>ADDRESS</th>
+                                <th>VIEW</th>
+                                <th>EDIT</th>
+                                <th>DELETE</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-publisher>
+                            <tr>
+                                <td>{{publisher.name}}</td>
+                                <td>{{publisher.mobile}}</td>
+                                <td>{{publisher.email}}</td>
+                                <td>{{publisher.address}}</td>
+                                <td><a [routerLink]="['/singleViewPublisher/',publisher.id]"><fa-icon [icon]="faEye" ></fa-icon></a></td>
+                                <td><a [routerLink]="['/editPublisher/',publisher.id]"><fa-icon [icon]="faPencil"></fa-icon></a></td>
+                                <td><fa-icon [icon]="faTrash" (click)="delete(publisher.id)"></fa-icon></td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,1 +1,79 @@
-<p>edit-publisher works!</p>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <br>
+                @if (isSuccess) {
+                    <ngb-alert [dismissible]="true" [type]="alertType">
+                        <strong>Success! </strong>Publisher Successfully Updated
+                    </ngb-alert>
+                }
+                <div class="box">
+                    <h3>UPDATE PUBLISHER DETAILS</h3>
+                    <form [formGroup]="reg" (ngSubmit)="onSubmit()">
+                        <label>Publisher Name</label>
+                        <input type="text" formControlName="name" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f['name'].errors}"/>
+                        @if (submitted && f['name'].errors) {
+                            <div class="invalid-feedback">
+                                @if (f['name'].errors['required']) 
+                                {
+                                    <div>Name is mandatory</div>
+                                }
+                            </div>
+                        }
+                        
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input
+                              type="text"
+                              formControlName="mobile"
+                              class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && f['mobile'].errors }"
+                            />
+                            @if (submitted && f['mobile'].errors) {
+                            <div class="invalid-feedback">
+                              @if (f['mobile'].errors['required']) {
+                              <div>Mobile is required</div>
+                              } 
+                              @if (f['mobile'].errors['pattern'] && f['mobile'].errors['minlength'] ) {
+                              <div>Invalid Mobile Number.</div>
+                              } 
+                              @if (f['mobile'].errors['pattern'] && f['mobile'].errors['maxlength']) {
+                              <div>Invalid Mobile Number.</div>
+                              } 
+                              <!-- @if (f['mobile'].errors['pattern']) {
+                              <div>Only numbers allowed.</div>
+                              } -->
+                            </div>
+                            }
+                          </div>
+                        <label>E-mail</label>
+                        <input type="text" formControlName="email" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f['email'].errors}"/>
+                        @if (submitted && f['email'].errors) {
+                            <div class="invalid-feedback">
+                                @if (f['email'].errors['required']) 
+                                {
+                                    <div>E-mail is mandatory</div>
+                                }
+                            </div>
+                        }
+                        <label>Address</label>
+                        <input type="text" formControlName="address" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f['address'].errors}"/>
+                        @if (submitted && f['address'].errors) {
+                            <div class="invalid-feedback">
+                                @if (f['address'].errors['required']) 
+                                {
+                                    <div>Address is mandatory</div>
+                                }
+                            </div>
+                        } <br>
+                        <button type="submit" class="button">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

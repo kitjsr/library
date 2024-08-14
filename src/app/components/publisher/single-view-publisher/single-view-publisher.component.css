@@ -1,0 +1,24 @@
+.box{
+    background:rgb(0, 255, 255,0.3);
+    padding:50px;
+    margin: 50px 0;
+    border-radius: 20px;
+    font-weight: 500;
+}
+.box h3{
+    font-weight: 600;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.button{
+    color:white;
+    background: black;
+    border-radius: 9px;
+    padding:8px 20px;
+    border: none;
+}
+.button:hover{
+    color:cyan;
+    background:black;
+}
+    

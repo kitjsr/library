@@ -1,0 +1,87 @@
+<p>table1 works!</p>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="area">
+                    <p-table [value]="publishers" dataKey="id" [tableStyle]="{ 'min-width': '50rem' }" 
+                    #dt1
+                    [value]="publishers"
+                    selectionMode="single" 
+                    [(selection)]="selectedPublisher" 
+                    dataKey="id"
+                    [rows]="10"
+                    [rowsPerPageOptions]="[10, 25, 50]"
+                    [loading]="loading"
+                    [paginator]="true"
+                    [globalFilterFields]="['name', 'publisher.name']">
+                    <ng-template pTemplate="caption">
+                        <div class="flex">
+                            <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" />
+                            <span class="p-input-icon-left ml-auto">
+                                <i class="pi pi-search"></i>
+                                <input 
+                                    pInputText 
+                                    type="text" 
+                                    (input)="dt1.filterGlobal($event.target, 'contains')" 
+                                    placeholder="Search keyword" />
+                            </span>
+                        </div>
+                        <br>
+                    </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th pSortableColumn="name" style="width:25%">
+                                    Name<p-sortIcon field="name" />
+                                </th>
+                                <th pSortableColumn="mobile" style="width:25%">
+                                    Mobile<p-sortIcon field="mobile" />
+                                </th>
+                                <th pSortableColumn="email" style="width:25%">
+                                    Email<p-sortIcon field="email" />
+                                </th>
+                                <th pSortableColumn="address" style="width:25%">
+                                    Address <p-sortIcon field="adress" />
+                                </th>
+                                <th colspan="3" style="width:25%">
+                                    Action 
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p-columnFilter type="text" field="name" [showClearButton]="false" placeholder="Search name"/>
+                                </td>
+                                <td>
+                                    <p-columnFilter type="text" field="mobile" [showClearButton]="false" placeholder="Search mobile no."/>
+                                </td>
+                                <td>
+                                    <p-columnFilter type="text" field="email" [showClearButton]="false" placeholder="Search email"/>
+                                </td>
+                                <td>
+                                    <p-columnFilter type="text" field="address" [showClearButton]="false" placeholder="Search address"/>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-publisher let-editing="editing">
+                            <tr [pSelectableRow]="publisher">
+                                <td>{{publisher.name}}</td>
+                                <td>{{publisher.mobile}}</td>
+                                <td>{{publisher.email}}</td>
+                                <td>{{publisher.address}}</td>
+                                <td class="action"><a [routerLink]="['/singleview/',publisher.id]"><fa-icon [icon]="faEye"></fa-icon></a></td>
+                                <td class="action1"><a [routerLink]="['/edit/',publisher.id]"><fa-icon [icon]="faPencil"></fa-icon></a></td>
+                                <td class="action2"><fa-icon [icon]="faTrash" (click)="delete(publisher.id)"></fa-icon></td>
+                            </tr>
+                        </ng-template>
+                        
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="7">No publishers found.</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

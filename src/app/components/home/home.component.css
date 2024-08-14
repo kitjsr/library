@@ -1,24 +1,15 @@
 .home{
-    background:url('https://images.pexels.com/photos/3952078/pexels-photo-3952078.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    padding:100px 0;
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)) , url('https://www.reganagency.com/wp-content/uploads/2023/10/The-Best-Programs-to-Add-to-Your-Library-for-Back-to-School-Season-e1535472831204.jpg') ;
+    padding:120px 40px;
 }
-.box1{
-    background:rgb(0, 214, 212,0.85);
-    padding:50px 50px;
-    border-radius: 20px;
+h1{
+    /* color:rgb(0, 214, 212); */
+    color:#fff;
+    font-weight: 800;
+    font-size:45px;
+    font-family: 'Times New Roman', Times, serif;
 }
-.box1 .button{
-    text-align: center;
-}
-
-button .button a:link, button .button a:visited{
-    background: #000 !important;
-    color:#fff ;
-    padding:10px 20px;
-    text-decoration: none;
-    border-radius: 8px;
-    
-}
-.button a:hover{
-    color:	#00D6D4;
+.box1 img{
+    width:100%;
+    border-radius: 10px;
 }
