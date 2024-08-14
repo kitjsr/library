@@ -11,7 +11,8 @@
 .box h3{
     font-weight: 600;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}:host ::ng-deep {
+}
+:host ::ng-deep {
     .p-progressbar {
         height: .5rem;
         background-color: #D8DADC;
