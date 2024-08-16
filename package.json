@@ -27,7 +27,6 @@
     "@popperjs/core": "^2.11.8",
     "@syncfusion/ej2-angular-lists": "^26.2.5",
     "@syncfusion/ej2-angular-navigations": "^26.2.8",
-    "@syncfusion/ej2-react-lists": "^26.2.5",
     "bootstrap": "^5.3.3",
     "primeng": "^17.18.8",
     "rxjs": "~7.8.0",

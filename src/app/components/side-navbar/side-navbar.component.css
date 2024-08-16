@@ -1,32 +1,29 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+/* @import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-angular-navigations/styles/material.css'; */
+
+
+.header {
+text-align: center;
+color: white;
+background-color: midnightblue;
+line-height: 51px;
+font-size: 25px;
+}
+
+  .main-content {
+  font-size: 18px;
+  text-align: center;
+  padding-top: 50px;
+  padding-left: 30px;
   }
-  
-  .example-is-mobile .example-toolbar {
-    position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-    z-index: 2;
+  .sidebar-content {
+  font-size: 25px;
+  text-align: center;
+  padding-top: 50px;
   }
-  
-  h1.example-app-name {
-    margin-left: 8px;
+  .e-sidebar{
+  background-color: #f8f8f8;
   }
-  
-  .example-sidenav-container {
-    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-    flex: 1;
+  .e-sidebar.e-left{
+  top: 60px;
   }
-  
-  .example-is-mobile .example-sidenav-container {
-    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-       `<body>` to be our scrolling element for mobile layouts. */
-    flex: 1 0 auto;
-  }
-  

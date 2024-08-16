@@ -19,7 +19,7 @@ import { Table1Component } from './components/table1/table1.component';
 export const routes: Routes = [
     {path:'',component:HomeComponent},
     {path:'home',component:HomeComponent},
-    {path:'sideNavbar',component:SideNavbarComponent},
+    {path:'sidNavbar',component:SideNavbarComponent},
     {path:'about',component:AboutComponent},
     {path:'studentPanel',component:StudentPanelComponent},
     {path:'librarianPanel',component:LibrarianPanelComponent},
